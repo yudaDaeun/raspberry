@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <wiringPi.h>
+
+#define LEFT 3
+#define RIGHT 4
+#define SW1 5
+#define SW2 6
+
+void main(void){
+
+    printf("adder\n");
+	wiringPiSetupGpio();
+   
+ pinMode(LEFT,INPUT);
+ pinMode(RIGHT,INPUT);
+ pinMode(SW1,OUTPUT);
+ pinMode(SW2,OUTPUT);
+ 
+ for(;;)
+ {
+	
+ if(digitalRead(LEFT)){
+ digitalWrite(SW1,0);
+}
+ else {
+ digitalWrite(SW1,1);
+ 
+}
+
+ if(digitalRead(RIGHT)){
+ digitalWrite(SW2,0);
+}
+  else {
+	  digitalWrite(SW2,1);
+ 
+ }
+	printf("%d,%d\n",digitalRead(LEFT),digitalRead(RIGHT));  
+}
+
+ 
+}
